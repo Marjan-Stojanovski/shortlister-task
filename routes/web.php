@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('web')->group(function () {
+    Route::get('/', [App\Http\Controllers\PersonController::class, 'index'])->name('persons.index');
+    Route::get('/add-new-person', [App\Http\Controllers\PersonController::class, 'create'])->name('persons.create');
+    Route::post('/store-person', [App\Http\Controllers\PersonController::class, 'store'])->name('persons.store');
 });
