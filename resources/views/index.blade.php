@@ -7,7 +7,7 @@
     <div class="col-md-12">
         @if(Session::has('flash_message'))
             <div id="flash-message" class="text-center">
-                <p class="alert @if(session('flash_message') === 'Person successfully added!') alert-success @else alert-danger @endif ">{{ session('flash_message') }}</p>
+                <p class="alert  alert-success">{{ session('flash_message') }}</p>
             </div>
         @endif
         <table class="table">
